@@ -22,23 +22,29 @@
                         <!-- list-of-users-in-room -->
                     </ul>
                   </div>
-            </div>
+               </div>
 
-            <div class=" d-flex justify-content-end" id="col_2">
-                <div class="p-2 bd-highlight flex-fill d-flex align-items-start flex-column" id="message" >
-                    <!-- <div class="d-flex align-items-start flex-column" id="message"></div> -->
-                </div>
+               <div class=" d-flex justify-content-end" id="col_2">
+                  <div class="p-2 bd-highlight flex-fill d-flex align-items-start flex-column" id="message" >
+                      <!-- <div class="d-flex align-items-start flex-column" id="message"></div> -->
+                  </div>
 
-                <div class="p-2 bd-highlight d-flex align-items-center bg-dark" id="message-box">
-                    <form class="flex-fill" id="messageForm">
-                        <div class="mb-3 d-inline" >
-                            <input type="text" placeholder="message" class="form-control d-inline " required autocomplete="off" autofocus="on">
-                        </div>
-                    </form>
-                    <button type="submit" form="message-form" class="btn btn-danger" id= "submit">Send</button>
-                    <button type="button" class="btn btn-outline-info" id="send-location">Share Location</button>
-                </div>
-            </div>
+                  <div class="p-2 bd-highlight d-flex align-items-center bg-dark" id="message-box">
+                      <form class="flex-fill" id="messageForm">
+                          <div class="mb-3 d-inline" >
+                              <input type="text" placeholder="message" class="form-control d-inline " required autocomplete="off" autofocus="on">
+                          </div>
+                      </form>
+                      <button type="submit" form="message-form" class="btn btn-danger m-2" id= "submit">Send</button>
+
+                          <div class="btn btn-light" id="yourBtn" onclick="getFile()"><i class="bi bi-upload"></i></div>
+                          <div style='height: 0px;width: 0px; overflow:hidden;'>
+                              <input id="upfile" name="image" type="file" />
+                          </div>
+
+                      <button type="button" class="btn btn-outline-info" id="send-location">Share Location</button>
+                  </div>
+              </div>
         </div>
     </div>
 
@@ -67,6 +73,18 @@
             </div>
         </div>
     </script>
+
+    <script id="image-template" type="text/html">
+      <div class="card message" >
+          <div class="card-header d-flex justify-content-between" style="padding: 0.1rem 0.5rem;">
+            <b>{{username}}</b>
+            <span style="min-width: 10px;"></span> <span>{{createdAt}}</span>
+          </div>
+          <div class="card-body" style="padding: 0.5rem 0.5rem;">
+              <img src='{{file}}'/>
+          </div>
+        </div>
+  </script>
 
     <script id="room-users" type="text/html">
         <ul class="list-group list-group-flush">
